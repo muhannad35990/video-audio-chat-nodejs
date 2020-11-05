@@ -3,8 +3,6 @@ const videoGrid = document.getElementById("video-grid");
 const myPeer = new Peer(undefined, {
   host: "meeting-video-chat.herokuapp.com",
   port: 9000,
-  path: "/",
-  secure: true,
 });
 const myVideo = document.createElement("video");
 myVideo.muted = true;
