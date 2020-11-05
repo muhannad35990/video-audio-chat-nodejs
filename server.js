@@ -5,15 +5,10 @@ const server = require("http").Server(app);
 const io = require("socket.io")(server);
 const { v4: uuidV4 } = require("uuid");
 
-const { PeerServer } = require("peer");
-
-const peerServer = PeerServer({
-  port: 443,
-});
+var ExpressPeerServer = require("peer").ExpressPeerServer;
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
-app.use("/peerjs", peerServer);
 
 app.get("/", (req, res) => {
   res.redirect(`/${uuidV4()}`);
@@ -35,3 +30,5 @@ io.on("connection", (socket) => {
 });
 
 server.listen(process.env.PORT || 3000);
+var peerServer = ExpressPeerServer(server);
+app.use(peerServer);
