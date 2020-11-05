@@ -2,7 +2,7 @@ const socket = io("/");
 const videoGrid = document.getElementById("video-grid");
 const myPeer = new Peer(undefined, {
   host: "meeting-video-chat.herokuapp.com",
-  port: 443,
+  port: 9000,
   path: "/",
   secure: true,
 });
