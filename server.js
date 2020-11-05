@@ -8,8 +8,7 @@ const { v4: uuidV4 } = require("uuid");
 const { PeerServer } = require("peer");
 
 const peerServer = PeerServer({
-  port: 9000,
-  path: "/",
+  port: 443,
 });
 
 app.set("view engine", "ejs");
